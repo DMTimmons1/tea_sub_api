@@ -1,3 +1,4 @@
 class Tea < ApplicationRecord
-  belongs_to :subscription
+  has_many :tea_subscriptions
+  has_many :subscriptions, through: :tea_subscriptions
 end

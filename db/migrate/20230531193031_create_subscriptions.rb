@@ -3,7 +3,7 @@ class CreateSubscriptions < ActiveRecord::Migration[7.0]
     create_table :subscriptions do |t|
       t.references :customer, foreign_key: true
       t.string :title
-      t.integer :price
+      t.float :price
       t.string :status
       t.string :frequencey
       
