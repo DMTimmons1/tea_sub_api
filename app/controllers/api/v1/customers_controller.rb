@@ -24,6 +24,8 @@ class Api::V1::CustomersController < ApplicationController
 
   def destroy
     begin
+      customer = Customer.find(params[:id])
+      customer.subscriptions.destroy_all
       render json: CustomerSerializer.new(Customer.destroy(params[:id]))
     end
   end

@@ -35,8 +35,8 @@ RSpec.describe 'Customer API' do
       end
     end
     context 'sad path' do
-      it 'returns a 404 if user not found' do
-        get '/api/v1/customers/100'
+      it 'returns a 404 if customer not found' do
+        get '/api/v1/customers/notarealcustomer'
 
         error = JSON.parse(response.body, symbolize_names: true)
         expect(response.status).to eq(404)
@@ -110,7 +110,7 @@ RSpec.describe 'Customer API' do
       end
     end
     context 'sad path' do
-      it 'returns a 404 if user not found' do
+      it 'returns a 404 if customer not found' do
         delete "/api/v1/customers/notarealid"
 
         expect(response.status).to eq(404)

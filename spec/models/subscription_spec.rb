@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Subscription, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "relationships" do
+    it { should belong_to :customer }
+    it { should have_many :tea_subscriptions }
+    it { should have_many(:teas).through(:tea_subscriptions) }
+  end
 end
+
